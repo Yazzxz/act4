@@ -45,8 +45,14 @@ function App() {
         clearInterval(intervalo)
       }
     }
-    luz()
-    intervalo = setInterval(luz, 1000)
+    setIluminado(null)
+    //luz()
+    intervalo = setInterval(() => {
+      setIluminado(null);
+      setTimeout(() => {
+        luz();
+      }, 500);
+    }, 1000);
   }
 
   useEffect(() => {
@@ -58,10 +64,11 @@ function App() {
 
   return (
     <>
-    <button onClick={() => console.log(contador)}>CONTADOR</button>
+    <h1>JUEGO DE LA MEMORIA</h1>
+    <h2>Aprieta jugar y repite los colores</h2>
     <div className="board">
       {colores.map((color, index) => (
-        <button onClick={() => setContador([...contador, index])} disabled={patron.length === 0 || iluminado !== null ? true : false} className="boton" id={color} style={{backgroundColor: color, opacity: iluminado === index ? 0.5 : ''}}/>
+        <button onClick={() => setContador([...contador, index])} disabled={patron.length === 0 || iluminado !== null ? true : false} className="boton" id={color} style={{backgroundColor: color, filter: iluminado === index ? 'brightness(1)' : ''}}/>
       ))}
       <div className="count"> 
         <>

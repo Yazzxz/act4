@@ -4,6 +4,7 @@
 }
 
 .board{
+    margin-top: 2rem;
     margin-left: auto; margin-right: auto;
     width: 30vw;
     height: 30vw;
@@ -41,7 +42,12 @@
 #green{
     border-bottom-left-radius: 100%;
 }
-
+.count > button{
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    color: #f1f1f1;
+}
 
 .count{
     display: flex;
@@ -49,13 +55,19 @@
     height: 50%;
     top: 50%;
     left: 50%;
-    border-radius: 360%;
+    border-radius: 100%;
     text-align: center;
     justify-content: center;
     align-items: center;
-
-    background-color: white;
+    background-color: #252525;
     position: absolute;
 
     transform: translate(-50%, -50%);
+}
+
+@media (max-width: 780px){
+    .board{
+        width: 70vw;
+        height: 70vw;
+    }
 }
